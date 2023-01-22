@@ -2,7 +2,7 @@
 
 A projen project that can be used directly from a git repository w/o publishing.
 
-## Getting started
+## Usage
 
 Create your custom projen from git project with this simple command:
 
@@ -10,8 +10,11 @@ Create your custom projen from git project with this simple command:
 projen new --from @mrgrain/projen-from-git@mrgrain/projen-from-git
 ```
 
-It is important to us the `<package-name>@<git-remote>` format, otherwise projen won't be able to correctly resolve the package.
+It is important to use the `<package-name>@<git-remote>` format, otherwise projen won't be able to correctly resolve the package.
 All protocols supported by npm are supported for `<git-remote>`, however limitations apply if you change the package manager (see below).
+
+For your production packages you likely want to append a `#<commit-ish>` at the end of `<git-remote>`.
+For example `mrgrain/projen-from-git#v0.0.0` would install the very first release of this package.
 
 ## Configuration
 
