@@ -29,7 +29,6 @@ const project = new ProjenProjectFromGit({
   },
 
   defaultReleaseBranch: 'main',
-  release: false,
   releaseTrigger: release.ReleaseTrigger.scheduled({
     schedule: '0 5 * * 1',
   }),
