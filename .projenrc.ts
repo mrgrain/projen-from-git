@@ -32,6 +32,11 @@ const project = new ProjenProjectFromGit({
   releaseTrigger: release.ReleaseTrigger.scheduled({
     schedule: '0 5 * * 1',
   }),
+
+  workflowBootstrapSteps: [{
+    name: 'Update npm',
+    run: 'sudo npm i -g npm@8',
+  }],
 });
 
 project.synth();
