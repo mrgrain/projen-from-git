@@ -55,7 +55,7 @@
     "stability": "stable"
   },
   "homepage": "git@github.com:mrgrain/projen-jsii-git-project.git",
-  "jsiiVersion": "1.74.0 (build 6d08790)",
+  "jsiiVersion": "1.75.0 (build 63bb957)",
   "license": "MIT",
   "metadata": {
     "jsii": {
@@ -114,5 +114,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "Bzk4YWVmyNbJEEVWjkCb5c7Ws+X8vOIS+GYarG82NBk="
+  "fingerprint": "bgLvG2B3kT5DzYQDdXkXFJyTPNFeqwcdq4UNcUsRIQs="
 }
