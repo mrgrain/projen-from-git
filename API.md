@@ -674,6 +674,7 @@ The command to execute.
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -1123,6 +1124,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@mrgrain/projen-from-git.ProjenProjectFromGit.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
