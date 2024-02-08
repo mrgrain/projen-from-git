@@ -62,9 +62,7 @@ The easiest way is to have a public repository and use an Open Source license.
 
 # API Reference <a name="API Reference" id="api-reference"></a>
 
-
-
-## Classes <a name="Classes" id="Classes"></a>
+## Constructs <a name="Constructs" id="Constructs"></a>
 
 ### ProjenProjectFromGit <a name="ProjenProjectFromGit" id="@mrgrain/projen-from-git.ProjenProjectFromGit"></a>
 
@@ -92,9 +90,10 @@ new ProjenProjectFromGit(options: JsiiProjectOptions)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addTask">addTask</a></code> | Adds a new task to this project. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
@@ -123,6 +122,14 @@ new ProjenProjectFromGit(options: JsiiProjectOptions)
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
 
 ---
+
+##### `toString` <a name="toString" id="@mrgrain/projen-from-git.ProjenProjectFromGit.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addExcludeFromCleanup"></a>
 
@@ -165,14 +172,13 @@ The glob pattern to ignore.
 public addPackageIgnore(pattern: string): void
 ```
 
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+Adds patterns to be ignored by npm.
 
 ###### `pattern`<sup>Required</sup> <a name="pattern" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addPackageIgnore.parameter.pattern"></a>
 
 - *Type:* string
+
+The pattern to ignore.
 
 ---
 
@@ -304,7 +310,7 @@ Synthesize all project files into `outdir`.
 
 1. Call "this.preSynthesize()"
 2. Delete all generated files
-3. Synthesize all sub-projects
+3. Synthesize all subprojects
 4. Synthesize all components of this project
 5. Call "postSynthesize()" for all components of this project
 6. Call "this.postSynthesize()"
@@ -634,11 +640,87 @@ The command to execute.
 
 ---
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@mrgrain/projen-from-git.ProjenProjectFromGit.isConstruct"></a>
+
+```typescript
+import { ProjenProjectFromGit } from '@mrgrain/projen-from-git'
+
+ProjenProjectFromGit.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@mrgrain/projen-from-git.ProjenProjectFromGit.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@mrgrain/projen-from-git.ProjenProjectFromGit.isProject"></a>
+
+```typescript
+import { ProjenProjectFromGit } from '@mrgrain/projen-from-git'
+
+ProjenProjectFromGit.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@mrgrain/projen-from-git.ProjenProjectFromGit.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@mrgrain/projen-from-git.ProjenProjectFromGit.of"></a>
+
+```typescript
+import { ProjenProjectFromGit } from '@mrgrain/projen-from-git'
+
+ProjenProjectFromGit.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@mrgrain/projen-from-git.ProjenProjectFromGit.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
@@ -700,6 +782,18 @@ The command to execute.
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@mrgrain/projen-from-git.ProjenProjectFromGit.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
@@ -1442,6 +1536,7 @@ public readonly tsconfigEslint: TypescriptConfig;
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.DEFAULT_TS_JEST_TRANFORM_PATTERN">DEFAULT_TS_JEST_TRANFORM_PATTERN</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1459,5 +1554,17 @@ Normally
 this task should synthesize the project files.
 
 ---
+
+##### `DEFAULT_TS_JEST_TRANFORM_PATTERN`<sup>Required</sup> <a name="DEFAULT_TS_JEST_TRANFORM_PATTERN" id="@mrgrain/projen-from-git.ProjenProjectFromGit.property.DEFAULT_TS_JEST_TRANFORM_PATTERN"></a>
+
+```typescript
+public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
+```
+
+- *Type:* string
+
+---
+
+
 
 

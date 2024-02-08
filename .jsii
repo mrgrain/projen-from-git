@@ -10,6 +10,31 @@
     "projen": "^x.x.x"
   },
   "dependencyClosure": {
+    "constructs": {
+      "targets": {
+        "dotnet": {
+          "namespace": "Constructs",
+          "packageId": "Constructs"
+        },
+        "go": {
+          "moduleName": "github.com/aws/constructs-go"
+        },
+        "java": {
+          "maven": {
+            "artifactId": "constructs",
+            "groupId": "software.constructs"
+          },
+          "package": "software.constructs"
+        },
+        "js": {
+          "npm": "constructs"
+        },
+        "python": {
+          "distName": "constructs",
+          "module": "constructs"
+        }
+      }
+    },
     "projen": {
       "submodules": {
         "projen.awscdk": {},
@@ -114,5 +139,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "2l1eI3DJEPIAe/cksnTVsmXpnGwun6/W0Q88wde+jac="
+  "fingerprint": "k/9VQh6WW/0IjDr6mJkoEmow97vQiwQtqpjvh00jZBs="
 }
