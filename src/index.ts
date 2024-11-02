@@ -23,12 +23,9 @@ export class ProjenProjectFromGit extends cdk.JsiiProject {
       ],
       peerDeps: [
         ...options?.peerDeps || [],
-        'projen@^x.x.x',
+        'projen@^0.90.0',
       ],
     });
-
-    this.deps.removeDependency('typescript');
-    this.addDevDeps('typescript@^3.9.0');
 
     this.gitignore.removePatterns('.jsii', '/lib');
   }

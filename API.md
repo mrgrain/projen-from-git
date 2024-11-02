@@ -1,65 +1,3 @@
-# ProjenProjectFromGit
-
-A projen project that can be used directly from a git repository w/o publishing.
-
-## Usage
-
-Create your custom projen from git project with this simple command:
-
-```console
-projen new --from @mrgrain/projen-from-git@mrgrain/projen-from-git
-```
-
-It is important to use the `<package-name>@<git-remote>` format, otherwise projen won't be able to correctly resolve the package.
-All protocols supported by npm are supported for `<git-remote>`, however limitations apply if you change the package manager (see below).
-
-For your production packages you likely want to append a `#<commit-ish>` at the end of `<git-remote>`.
-For example `mrgrain/projen-from-git#v0.0.0` would install the very first release of this package.
-
-## Configuration
-
-All `JsiiProject` options are available and can be used as command line flag when running `projen new`.
-For a full list of the available flags, run `projen new jsii --help`.
-
-### projen dependency
-
-By default, a `ProjenProjectFromGit` will take the latest version of projen as a dev dependency and any version as peer dependency.
-In practice this works okay, since most projen projects auto-updated to the latest version of projen.
-
-However you might want to consider changing the peer dependency version constraint to the actual minimal required version.
-
-### Changed defaults
-
-| Option                                      | New default |
-| ------------------------------------------- | ----------- |
-| `packageManager`                            | `"npm"`     |
-| `peerDependencyOptions.pinnedDevDependency` | `false`     |
-| `projenrcTs`                                | `true`      |
-| `releaseToNpm`                              | `false`     |
-
-## Limitations
-
-### Support for JavaScript & TypeScript only
-
-Using a git repository requires all compiled files to be checked into version control.
-Currently it is not easily possible to check-in the jsii output files for any other languages.
-
-### Supported `<git-remote>` formats
-
-Please refer to the documentation of your package manager for supported formats.
-When using `yarn` or `pnpm` the safest way is to use one of these two formats:
-
-```console
-git+ssh://github.com/mrgrain/projen-from-git.git
-git+https://github.com/mrgrain/projen-from-git.git
-```
-
-### Authentication
-
-Authentication is handled by package managers.
-Please do not open an issue if authentication does not work.
-The easiest way is to have a public repository and use an Open Source license.
-
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
@@ -134,7 +72,7 @@ Returns a string representation of this construct.
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addExcludeFromCleanup"></a>
 
 ```typescript
-public addExcludeFromCleanup(globs: string): void
+public addExcludeFromCleanup(globs: ...string[]): void
 ```
 
 Exclude the matching files from pre-synth cleanup.
@@ -144,7 +82,7 @@ source files include the projen marker and we don't want them to be erased durin
 
 ###### `globs`<sup>Required</sup> <a name="globs" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addExcludeFromCleanup.parameter.globs"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The glob patterns to match.
 
@@ -400,7 +338,7 @@ public addBins(bins: {[ key: string ]: string}): void
 ##### `addBundledDeps` <a name="addBundledDeps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addBundledDeps"></a>
 
 ```typescript
-public addBundledDeps(deps: string): void
+public addBundledDeps(deps: ...string[]): void
 ```
 
 Defines bundled dependencies.
@@ -410,7 +348,7 @@ Bundled dependencies will be added as normal dependencies as well as to the
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addBundledDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -425,28 +363,28 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 ##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addCompileCommand"></a>
 
 ```typescript
-public addCompileCommand(commands: string): void
+public addCompileCommand(commands: ...string[]): void
 ```
 
 DEPRECATED.
 
 ###### `commands`<sup>Required</sup> <a name="commands" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addCompileCommand.parameter.commands"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 ---
 
 ##### `addDeps` <a name="addDeps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addDeps"></a>
 
 ```typescript
-public addDeps(deps: string): void
+public addDeps(deps: ...string[]): void
 ```
 
 Defines normal dependencies.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -461,14 +399,14 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 ##### `addDevDeps` <a name="addDevDeps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addDevDeps"></a>
 
 ```typescript
-public addDevDeps(deps: string): void
+public addDevDeps(deps: ...string[]): void
 ```
 
 Defines development/test dependencies.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addDevDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -499,14 +437,14 @@ The fields to set.
 ##### `addKeywords` <a name="addKeywords" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addKeywords"></a>
 
 ```typescript
-public addKeywords(keywords: string): void
+public addKeywords(keywords: ...string[]): void
 ```
 
 Adds keywords to package.json (deduplicated).
 
 ###### `keywords`<sup>Required</sup> <a name="keywords" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addKeywords.parameter.keywords"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The keywords to add.
 
@@ -515,7 +453,7 @@ The keywords to add.
 ##### `addPeerDeps` <a name="addPeerDeps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addPeerDeps"></a>
 
 ```typescript
-public addPeerDeps(deps: string): void
+public addPeerDeps(deps: ...string[]): void
 ```
 
 Defines peer dependencies.
@@ -526,7 +464,7 @@ your code against the minimum version required from your consumers.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addPeerDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -557,14 +495,14 @@ The scripts to set.
 ##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addTestCommand"></a>
 
 ```typescript
-public addTestCommand(commands: string): void
+public addTestCommand(commands: ...string[]): void
 ```
 
 DEPRECATED.
 
 ###### `commands`<sup>Required</sup> <a name="commands" id="@mrgrain/projen-from-git.ProjenProjectFromGit.addTestCommand.parameter.commands"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 ---
 
@@ -765,8 +703,8 @@ When given a project, this it the project itself.
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version supported by this package. |
+| <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | The minimum node version required by this package to function. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
 | <code><a href="#@mrgrain/projen-from-git.ProjenProjectFromGit.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
@@ -1342,7 +1280,9 @@ public readonly maxNodeVersion: string;
 
 - *Type:* string
 
-Maximum node version required by this package.
+Maximum node version supported by this package.
+
+The value indicates the package is incompatible with newer versions.
 
 ---
 
@@ -1354,7 +1294,9 @@ public readonly minNodeVersion: string;
 
 - *Type:* string
 
-Minimum node.js version required by this package.
+The minimum node version required by this package to function.
+
+This value indicates the package is incompatible with older versions.
 
 ---
 
