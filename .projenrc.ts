@@ -12,6 +12,9 @@ const project = new ProjenProjectFromGit({
 
   stale: false,
 
+  jsiiVersion: '5.5.x',
+  typescriptVersion: '5.5.x',
+
   githubOptions: {
     projenCredentials: github.GithubCredentials.fromApp(),
     pullRequestLintOptions: {

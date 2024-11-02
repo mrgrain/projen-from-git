@@ -2,22 +2,26 @@
   "dependencies": [
     {
       "name": "@types/jest",
-      "version": "^27",
       "type": "build"
     },
     {
       "name": "@types/node",
-      "version": "^16 <= 16.18.78",
+      "version": "ts5.5",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/eslint-plugin",
-      "version": "^6",
+      "version": "^7",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
-      "version": "^6",
+      "version": "^7",
+      "type": "build"
+    },
+    {
+      "name": "commit-and-tag-version",
+      "version": "^12",
       "type": "build"
     },
     {
@@ -39,13 +43,12 @@
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^15",
+      "name": "jest",
       "type": "build"
     },
     {
-      "name": "jest",
-      "version": "^27",
+      "name": "jest-junit",
+      "version": "^15",
       "type": "build"
     },
     {
@@ -54,6 +57,7 @@
     },
     {
       "name": "jsii-docgen",
+      "version": "^10.5.0",
       "type": "build"
     },
     {
@@ -62,12 +66,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "1.x",
+      "version": "5.5.x",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "1.x",
+      "version": "5.5.x",
       "type": "build"
     },
     {
@@ -75,13 +79,7 @@
       "type": "build"
     },
     {
-      "name": "standard-version",
-      "version": "^9",
-      "type": "build"
-    },
-    {
       "name": "ts-jest",
-      "version": "^27",
       "type": "build"
     },
     {
@@ -90,22 +88,12 @@
     },
     {
       "name": "typescript",
-      "version": "^3.9.0",
+      "version": "5.5.x",
       "type": "build"
     },
     {
-      "name": "@types/babel__traverse",
-      "version": "7.18.2",
-      "type": "override"
-    },
-    {
-      "name": "@types/prettier",
-      "version": "2.6.0",
-      "type": "override"
-    },
-    {
       "name": "projen",
-      "version": "^x.x.x",
+      "version": "^0.90.0",
       "type": "peer"
     }
   ],
