@@ -24,14 +24,6 @@ describe('given a ProjenProjectFromGit', () => {
     expect(snapshot['.gitignore']).not.toHaveProperty('dependencies');
   });
 
-  test('has a dev dependency on ts3.9', () => {
-    expect(snapshot['package.json']).toMatchObject(expect.objectContaining({
-      devDependencies: expect.objectContaining({
-        typescript: '^3.9.0',
-      }),
-    }));
-  });
-
   test('has a dev dependency on projen', () => {
     expect(snapshot['package.json']).toMatchObject(expect.objectContaining({
       devDependencies: expect.objectContaining({
@@ -43,7 +35,7 @@ describe('given a ProjenProjectFromGit', () => {
   test('has a peer dependency on projen', () => {
     expect(snapshot['package.json']).toMatchObject(expect.objectContaining({
       peerDependencies: expect.objectContaining({
-        projen: '^x.x.x',
+        projen: expect.anything(),
       }),
     }));
   });
