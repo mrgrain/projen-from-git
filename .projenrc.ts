@@ -10,10 +10,8 @@ const project = new ProjenProjectFromGit({
   repositoryUrl: 'git@github.com:mrgrain/projen-jsii-git-project.git',
   license: 'MIT',
 
-  stale: false,
-
-  jsiiVersion: '5.5.x',
-  typescriptVersion: '5.5.x',
+  jsiiVersion: '5.8.x',
+  typescriptVersion: '5.8.x',
 
   githubOptions: {
     projenCredentials: github.GithubCredentials.fromApp(),
