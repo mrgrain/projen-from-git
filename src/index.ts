@@ -29,7 +29,7 @@ export class ProjenProjectFromGit extends cdk.JsiiProject {
       ],
     });
 
-    this.addPeerDeps('projen@^0.90.0');
+    this.addPeerDeps('projen@>=0.90.0');
 
     this.gitignore.removePatterns('.jsii', '/lib');
   }

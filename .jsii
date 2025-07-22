@@ -7,7 +7,7 @@
     ]
   },
   "dependencies": {
-    "projen": "^0.90.0"
+    "projen": ">=0.90.0"
   },
   "dependencyClosure": {
     "constructs": {
@@ -48,6 +48,7 @@
         "projen.gitlab": {},
         "projen.java": {},
         "projen.javascript": {},
+        "projen.javascript.biome_config": {},
         "projen.python": {},
         "projen.release": {},
         "projen.typescript": {},
@@ -139,5 +140,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "QwVLRAAgqBQF7eD1UgSkanuzLzLmpwYxaoE2LmuxmII="
+  "fingerprint": "7gHUGGHQ+WiR/092YYATZr3fK2hvBpqofWnm88eCvu8="
 }
