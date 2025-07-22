@@ -32,5 +32,8 @@ export class ProjenProjectFromGit extends cdk.JsiiProject {
     this.addPeerDeps('projen@>=0.90.0');
 
     this.gitignore.removePatterns('.jsii', '/lib');
+
+    // This project isn't packaged, so we do nothing
+    this.tasks.tryFind('package')?.reset();
   }
 }
