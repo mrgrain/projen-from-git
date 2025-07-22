@@ -7,6 +7,7 @@
     ]
   },
   "dependencies": {
+    "constructs": "^10.0.0",
     "projen": ">=0.90.0"
   },
   "dependencyClosure": {
@@ -135,10 +136,25 @@
         "filename": "src/index.ts",
         "line": 3
       },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "Override this method to implement custom samples.",
+            "stability": "stable",
+            "summary": "Setup sample code for new projects."
+          },
+          "locationInModule": {
+            "filename": "src/index.ts",
+            "line": 49
+          },
+          "name": "sampleCode",
+          "protected": true
+        }
+      ],
       "name": "ProjenProjectFromGit",
       "symbolId": "src/index:ProjenProjectFromGit"
     }
   },
   "version": "0.0.0",
-  "fingerprint": "zT/jRibPXNsXEifDS/RiVEZFxx9iklabCVzL4XWY3wU="
+  "fingerprint": "wFPbmUeQgJtR7yyUhOQR5WxA9CMOz3Lz7I8NWqQWyIw="
 }
