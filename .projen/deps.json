@@ -80,6 +80,10 @@
       "type": "build"
     },
     {
+      "name": "mrpj",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "build"
     },

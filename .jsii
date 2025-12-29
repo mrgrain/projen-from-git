@@ -51,6 +51,7 @@
         "projen.javascript": {},
         "projen.javascript.biome_config": {},
         "projen.python": {},
+        "projen.python.uvConfig": {},
         "projen.release": {},
         "projen.typescript": {},
         "projen.vscode": {},
@@ -156,5 +157,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "i4lSgKFoJO0OK51UWKbOf4WE6l2+QUGxnxmsA0Ct7iI="
+  "fingerprint": "1WWGuh9D5wnP413zB2d5pjnEt82U9JSjhHUyRjHNYAU="
 }

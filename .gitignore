@@ -48,4 +48,5 @@ junit.xml
 !/.eslintrc.json
 tsconfig.json
 !/API.md
+!/.github/workflows/self-mutation.yml
 !/.projenrc.ts
