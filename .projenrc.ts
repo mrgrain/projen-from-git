@@ -1,3 +1,4 @@
+import * as mrpj from 'mrpj';
 import { github, release } from 'projen';
 import { ProjenProjectFromGit } from './src';
 
@@ -33,6 +34,18 @@ const project = new ProjenProjectFromGit({
   releaseTrigger: release.ReleaseTrigger.scheduled({
     schedule: '0 5 * * 1',
   }),
+
+  devDeps: [
+    'mrpj',
+  ],
+});
+
+mrpj.configureFeatures(
+  mrpj.features.protectAutomationCredentials,
+  mrpj.features.selfMutationOnForks,
+)(project, {
+  repo: 'mrgrain/projen-from-git',
+  automationEnvironment: 'automation',
 });
 
 project.synth();
